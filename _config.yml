@@ -8,4 +8,4 @@ url: "http://jobalias.github.io" # The base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
-theme: portfolYOU # Or any other supported Jekyll theme
+theme: jekyll-theme-minimal  # Or any other supported Jekyll theme
