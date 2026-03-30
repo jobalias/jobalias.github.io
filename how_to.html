@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hair Image Labeling Guide</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    
+            <nav>
+                <ul>
+                    <li class="logo"><a href = "index.html">Logo</a></li>
+                    <li class="page"><a href = "index.html">Home</a></li>
+                    <li class="page"><a href = "training.html" >Training</a></li>
+                    <li class="page"><a href = "quiz.html" >Quiz</a></li>
+                    <li class="page"><a href="labeling.html">Labeling</a></li>
+
+                </ul>
+            </nav>
+    <header class="hero">
+      <h1 class="title">How to Label Hair Images</h1>
+      <p class="subtitle">This page explains everything you need to know to label photos of hair 
+        consistently and accurately for our machine learning dataset. Please read through once 
+        before starting, then keep it open while labeling.</p>
+      <div class="legend" style="margin-top:10px">
+        <span><span class="dot" style="background:var(--ok)"></span>High‑priority</span>
+        <span><span class="dot" style="background:var(--warn)"></span>Tricky cases</span>
+        <span><span class="dot" style="background:var(--bad)"></span>Do not label</span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <nav class="sticky">
+        <h3>On this page</h3>
+        <div class="toc">
+          <a href="#overview" class="active">1. Overview & Goal</a>
+          <a href="#taxonomy">2. Label Vocabulary</a>
+          <a href="#protocol">3. Labeling Instructions</a>
+          <a href="#quality">4. Quality & Edge Cases</a>
+        </div>
+      </nav>
+
+      <main>
+        <!-- 1. OVERVIEW -->
+        <section id="overview" class="card">
+          <div class="kicker">Section 1</div>
+          <h2 class="mt-0">Overview & Goal</h2>
+          <p class="mb-12">Firstly, thank you for helping us with our project! You will be helping us build a training dataset for an AI model that will be able to accuratley identify and generate historically underrepresented hair types. 
+            Our priority is to label <strong>what is visible</strong> in each image. If you are unsure, please choose <em>Unsure/Not Visible</em> rather than guessing. Consistency beats precision!</p>
+          <div class="grid-2">
+            <div class="callout ok">
+              <strong>Primary goal:</strong>
+              <ul class="mb-0">
+                <li>Classify hair characteristics (curl radius, twist frequency, curl wavelength, porosity, thickness).</li>
+              </ul>
+            </div>
+            <div class="callout warn">
+              <strong>Important:</strong>
+              <ul class="mb-0">
+                <li>Base labels on the <em>current photo only</em>. Don't infer by asking other people or online resources.</li>
+                <li>Skip the image when the view is obstructed or out of frame.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. TAXONOMY -->
+        <section id="taxonomy" class="card">
+          <div class="kicker">Section 2</div>
+          <h2 class="mt-0">Label Vocabulary</h2>
+          <p class="hint mb-16">These are the fields you will see in the labeling form. 
+            For each, pick <em>one</em> value.</p>
+        </section>
+
+        <section id="Curl Diameter" class="card"> 
+          <div class="kicker">Section 2.1</div>     
+          <h2 class="mt-0">Curl Radius (in cm)</h2>
+            <div class="imggrid" aria-label="Curl diameter examples">
+              <figure class="sample"><img src="images/training/curl_diam_.75.png" ><figcaption>.75 cm</figcaption></figure>
+              <figure class="sample"><img src="images/training/curl_diam_4.png" ><figcaption>4 cm</figcaption></figure>
+              <figure class="sample"><img src="images/training/curl_diam_0.png" ><figcaption>0 cm</figcaption></figure>
+            </div>
+        </section>
+        
+        <section id="Twist Frequency" class="card"> 
+          <div class="kicker">Section 2.2</div>     
+          <h2 class="mt-0">Twist Frequency (on a scale from 1-10)</h2>
+            <div class="imggrid" aria-label="Length examples">
+              <figure class="sample"><img src="images/training/twist_freq_1.png" ><figcaption>1</figcaption></figure>
+              <figure class="sample"><img src="images/training/twist_freq_8.png" ><figcaption>8</figcaption></figure>
+            </div>
+
+        </section>  
+
+        <section id="Curl Wavelength" class="card"> 
+          <div class="kicker">Section 2.3</div> 
+          <h2 class="mt-0">Curl Wavelength (in cm)</h2>      
+            <div class="imggrid" aria-label="Density examples">
+                <figure class="sample"><img src="images/training/curl_wav_1.5.png" ><figcaption>1.5</figcaption></figure>
+                <figure class="sample"><img src="images/training/curl_wav_4.5.png" ><figcaption>4.5</figcaption></figure>
+            </div>
+
+        </section>  
+
+        <section id="Porosity" class="card"> 
+          <div class="kicker">Section 2.2</div>     
+          <h2 class="mt-0">Porosity (on a scale from 1-10)</h2>
+            <div class="imggrid" aria-label="Length examples">
+              <figure class="sample"><img src="images/training/porosity_4.png" ><figcaption>4</figcaption></figure>
+              <figure class="sample"><img src="images/training/porosity_7.png" ><figcaption>7</figcaption></figure>
+            </div>
+
+        </section>  
+
+        <section id="Thickness" class="card"> 
+          <div class="kicker">Section 2.2</div>     
+          <h2 class="mt-0">Thickness of a single strand (low, medium, or high)</h2>
+            <div class="imggrid" aria-label="Length examples">
+              <figure class="sample"><img src="images/training/thickness_3.png" ><figcaption>3</figcaption></figure>
+              <figure class="sample"><img src="images/training/thickness_7.png" ><figcaption>7</figcaption></figure>
+            </div>
+
+        </section>
+
+        <section id="protocol" class="card">
+          <div class="kicker">Section 3</div>
+          <h2 class="mt-0">Labeling Instructions </h2>
+          <ol>
+            <li><strong>Scan the image</strong> for lighting and determine whether enough hair is visible for you to make a well-informed decision about the hair.</li>
+            <li><strong>Choose curl diameter, twist frequency, curl wavelength</strong> using your best judgement, making estimates based on the scale of the person's face.</li>
+            <li><strong>Choose porosity and thickness (of each individual strand, not of the hair as a whole)</strong>. You may need to use context clues to determine porosity (i.e. how frizzy the hair looks).</li>
+            <li><strong>Skip</strong> the image if it is blurry, the hair is blocked, etc.</li>
+          </ol>
+
+        </section>
+
+        <!-- 4. QUALITY / EDGE CASES -->
+        <section id="quality" class="card">
+          <div class="kicker">Section 4</div>
+          <h2 class="mt-0">Quality Rules & Edge Cases</h2>
+
+          <div class="grid-2">
+            <div class="callout ok">
+              <strong>Label ✅</strong>
+              <ul class="mb-0">
+                <li>Clear view of hair with acceptable lighting.</li>
+                <li>Protective styles (braids, twists, locs) — only if you are able to make 
+                  a well-informed judgement based on the parts of the hair that are visible.</li>
+              </ul>
+            </div>
+            <div class="callout bad">
+              <strong>Do NOT label ❌</strong>
+              <ul class="mb-0">
+                <li>Blurry/blocked hair where core attributes are not visible.</li>
+                <li>Images where you aren't able to make a judgement about the scale of the hair 
+                  because not enough context clues are visible.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <details class="mb-12">
+            <summary>Common tricky cases (open for guidance)</summary>
+            <table>
+              <thead><tr><th>Case</th><th>How to label</th></tr></thead>
+              <tbody>
+                <tr><td>Wet hair</td><td>Pattern may look looser; label the visible state to the best of your ability, using the same judgement across all wet hair images.</td></tr>
+                <tr><td>Mixed patterns</td><td>Skip if the primary hair type/ unstyled hair is not visible.</td></tr>
+                <tr><td>Headwear/hats</td><td>Label what is visible; skip if necessary.</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <div class="callout warn">
+            <strong>Reviewer rubric (self‑check):</strong>
+            <ul class="mb-0">
+              <li><em>Accuracy</em>: Labels match visible evidence; no guessing.</li>
+              <li><em>Completeness</em>: All applicable fields filled.</li>
+              <li><em>Consistency</em>: Same judgement applied across all images.</li>
+            </ul>
+          </div>
+        </section>
+
+    
+        <!-- FOOTER / CONTACT -->
+        <section class="card">
+          <h2 class="mt-0">You’re ready 🎉</h2>
+          <p>Thank you for helping us build a fair, inclusive dataset across all hair types and styles.</p>
+          <a class="btn" href="labeling.html" >Go to Labeling Tool</a>
+        </section>
+
+        <footer>
+          <div>Hair Labeling Guide • v1.0 • © HairFlow</div>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Lightweight active section indicator for sidebar (no external deps)
+    const links = document.querySelectorAll('.toc a');
+    const sections = Array.from(document.querySelectorAll('main section')).map(s => ({id:s.id, top:0}));
+    const setActive = () => {
+      sections.forEach(o=>{ o.top = document.getElementById(o.id).getBoundingClientRect().top });
+      const near = sections.filter(o=>o.top < window.innerHeight * 0.45).slice(-1)[0] || sections[0];
+      links.forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#' + near.id));
+    };
+    document.addEventListener('scroll', setActive, {passive:true});
+    window.addEventListener('load', setActive);
+  </script>
+</body>
+</html>
